@@ -3,4 +3,4 @@
 
     <logger name="academy.learnprogramming" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
-  </configuration>
+</configuration>

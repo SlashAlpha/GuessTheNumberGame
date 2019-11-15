@@ -25,6 +25,7 @@ public class GameImpl implements Game {
 
     private final int guessCount;
 
+
     private int number;
     @Setter
     private int guess;
