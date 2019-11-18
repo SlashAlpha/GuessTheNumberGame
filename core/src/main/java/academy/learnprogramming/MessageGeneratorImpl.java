@@ -76,3 +76,4 @@ public class MessageGeneratorImpl implements MessageGenerator {
         return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
     }
 }
+// intercept
