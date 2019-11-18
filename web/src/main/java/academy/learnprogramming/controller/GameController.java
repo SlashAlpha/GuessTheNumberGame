@@ -5,6 +5,7 @@ import academy.learnprogramming.service.GameService;
 import academy.learnprogramming.util.AttributeNames;
 import academy.learnprogramming.util.GameMappings;
 import academy.learnprogramming.util.ViewNames;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
-public class GameContoller {
+public class GameController {
 
     // == fields ==
     private final GameService gameService;
 
     // == constructors ==
     @Autowired
-    public GameContoller(GameService gameService) {
+    public GameController(GameService gameService) {
         this.gameService = gameService;
     }
 
@@ -33,6 +34,7 @@ public class GameContoller {
         model.addAttribute(AttributeNames.RESULT_MESSAGE, gameService.getResultMessage());
         log.info("model = {}", model);
         if (gameService.isGameOver()) {
+
             return ViewNames.GAME_OVER;
         } else {
             return ViewNames.PLAY;
@@ -45,6 +47,14 @@ public class GameContoller {
         log.info("Guess = ", guess);
         gameService.checkGuess(guess);
         return GameMappings.REDIRECT_PLAY;
+    }
+
+    @GetMapping(GameMappings.RESTART)
+    public String restart(Model model) {
+        model.addAttribute(AttributeNames.RESULT_MESSAGE, gameService.getResultMessage());
+        gameService.reset();
+        return GameMappings.REDIRECT_PLAY;
+
     }
 
 }

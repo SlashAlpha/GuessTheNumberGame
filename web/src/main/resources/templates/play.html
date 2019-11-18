@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Guess the Number Game</title>
+<head id="headId">
+
 </head>
 <body>
 
@@ -11,18 +10,19 @@
     <h1> Guess Number Game</h1>
 
 
-    <h3 th:text="${mainMessage}">Main Message Content</h3>
+    <h3 id="main-message">Main Message Content</h3>
 
 
-    <h3 th:text="${resultMessage}">Result Message Content</h3>
-    <form action="play" method="post">
+    <h3 id="result-message">Result Message Content</h3>
+    <form action="play"
+          id="form-id" method="post">
 
         <label for="guess">Enter your guess</label>
         <input id="guess" name="guess" type="number">
         <input type="submit" value="Submit">
 
     </form>
-    <footer>Created by the learnprogramming academy and adapted by Clément Duprat</footer>
+    <footer id="footer-id"></footer>
 </div>
 </body>
 
