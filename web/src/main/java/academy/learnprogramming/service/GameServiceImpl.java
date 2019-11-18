@@ -30,7 +30,7 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public boolean isGameOver() {
-        return game.isGameWon();
+        return game.isGameWon() || game.isGameLost();
     }
 
     @Override
